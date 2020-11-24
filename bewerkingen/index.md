@@ -283,7 +283,7 @@ Zoals te zien is beginnen we met tellen vanaf 0, zoals computers vaak doen. De g
 
 ### Kleuren vervangen
 
-We kennen vast allemaal het emmertje met verf uit Microsoft Paint nog. De bewerking `ReplaceColorOperation` doet eigenlijk precies dat, maar dan op de hele afbeelding. We kiezen twee kleuren: de oorspronkelijke kleur en een nieuwe kleur. In ieder object waar de oorspronkelijke kleur voorkomt, vervangen we deze met de nieuwe kleur. Neem bijvoorbeeld het voorbeeld hieronder:
+We kennen vast allemaal het emmertje met verf uit Microsoft Paint nog. De bewerking `ReplaceColorOperation` doet eigenlijk precies dat, maar dan op de hele afbeelding. We kiezen twee kleuren: de oorspronkelijke kleur en een nieuwe kleur. In ieder object waar de oorspronkelijke kleur voorkomt, vervangen we deze door de nieuwe kleur. Neem bijvoorbeeld het voorbeeld hieronder:
 
     "layers": [
         {
@@ -367,7 +367,14 @@ Verzin ook zelf een bewerking en implementeer deze. Het maakt niet uit wat deze 
 
 ## Omgaan met onverwachte of ontbrekende input
 
-Net als in eerdere opdrachten moeten we ook hier omgaan met onverwachte input in onze classes. Voeg zelf assertions toe die controleren of een class op de juiste manier wordt gebruikt. Controleer bijvoorbeeld of alle vereiste input wordt gegeven en of de input redelijk is. Je kan je misschien wel voorstellen dat het schalen van een figuur met een factor 0.000001 voor problemen kan gaan zorgen :-). Let wel: edge cases die beschreven zijn bij de specifieke bewerkingen mogen in ieder geval niet resulteren in een error.
+Net als in eerdere opdrachten moeten we ook hier omgaan met onverwachte input in onze classes. Voeg nu zelf assertions toe die controleren of *een class op de juiste manier wordt gebruikt*. Je controleert dus met assertions of alle vereiste input wordt gegeven en of de input redelijk is.
+
+Je kan je misschien wel voorstellen dat het schalen van een figuur met een factor 0.000001 voor problemen zal zorgen, dus dit is een voorbeeld van een assertion die de factor binnen een redelijk bereik houdt:
+
+    assert type(factor) == int
+    assert 0 < factor < 100
+
+Assertions hoeven niet compleet te zijn, maar kunnen de meest obvious programmeerfouten voorkomen als de voorwaarden goed gekozen zijn. Edge cases die beschreven zijn bij de specifieke bewerkingen mogen in ieder geval niet resulteren in een error.
 
 
 ## Testen
